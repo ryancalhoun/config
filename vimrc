@@ -1,10 +1,20 @@
-autocmd BufReadPost *
-\ if line("'\"") > 0 && line("'\"") <= line("$") |
-\   exe "normal g`\"" |
-\ endif
+fun! SetTabBehavior()
+	if &ft =~ 'ruby\|javascript\|html'
+		set ts=2 sw=2 et
+	else
+		set ts=4 sw=4
+	endif
+endfun
 
-set ts=4 sw=4
-au FileType ruby set ts=2 set sw=2 set et
+fun! RecallFilePos()
+	if line("'\"") > 0 && line("'\"") <= line("$")
+		exe "normal g`\""
+	endif
+endfun
+
+au BufReadPost,BufNewFile * call SetTabBehavior()
+au BufReadPost * call RecallFilePos()
+
 map q <Nop>
 map Q <Nop>
 
