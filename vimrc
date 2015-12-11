@@ -12,8 +12,8 @@ fun! RecallFilePos()
 	endif
 endfun
 
-au BufReadPost,BufNewFile * call SetTabBehavior()
 au BufReadPost * call RecallFilePos()
+au BufReadPost,BufNewFile * call SetTabBehavior()
 
 map q <Nop>
 map Q <Nop>

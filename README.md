@@ -1,6 +1,6 @@
 # dotfiles
 
-sudo apt-get install make g++ vim curl git libssl-dev libreadline-dev locate
+sudo apt-get install make g++ vim curl git git-core bash-completion libssl-dev libreadline-dev locate
 
 sudo apt-get install libqtwebkit-dev qt4-qmake
 
