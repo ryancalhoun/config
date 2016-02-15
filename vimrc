@@ -18,3 +18,4 @@ au BufReadPost,BufNewFile * call SetTabBehavior()
 map q <Nop>
 map Q <Nop>
 
+set hls
