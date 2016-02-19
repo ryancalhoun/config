@@ -1,4 +1,6 @@
-# dotfiles
+# config
+
+Random notes
 
 sudo apt-get install make g++ vim curl git git-core bash-completion libssl-dev libreadline-dev locate
 
