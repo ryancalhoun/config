@@ -19,3 +19,5 @@ map q <Nop>
 map Q <Nop>
 
 set hls
+
+syntax on
