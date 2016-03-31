@@ -19,5 +19,6 @@ map q <Nop>
 map Q <Nop>
 
 set hls
+set bs=2
 
 syntax on
