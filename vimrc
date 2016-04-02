@@ -1,4 +1,5 @@
 fun! SetTabBehavior()
+	filetype detect
 	if &ft =~ 'ruby\|javascript\|html'
 		set ts=2 sw=2 et
 	else
