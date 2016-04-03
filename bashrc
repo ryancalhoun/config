@@ -29,8 +29,12 @@ function systeminfo
 function gitinfo
 {
 	local branch
-	if branch=$(git symbolic-ref -q --short HEAD || git describe --tags --always 2>/dev/null); then
+	if branch=$(git symbolic-ref -q --short HEAD 2>/dev/null); then
 		echo " \033[35;1m($branch)\033[0m"
+	elif tag=$(git describe --tags --exact-match 2>/dev/null); then
+		echo " \033[33;1m($tag)\033[0m"
+	elif sha=$(git describe --always 2>/dev/null); then
+		echo " \033[36;1m($sha)\033[0m"
 	fi
 }
 
