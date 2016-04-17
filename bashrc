@@ -2,6 +2,8 @@ if [[ -z $_PATH ]]; then
 	export _PATH=$PATH
 fi
 
+export EDITOR=vim
+
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
