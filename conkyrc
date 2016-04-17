@@ -61,10 +61,10 @@ TEXT
 $nodename - $sysname $kernel
 $hr
 ${color grey}Uptime:$color ${format_time $uptime "\dd \hh \mm"}
-${color grey}Frequency $color ${freq_g}GHz ${color grey}(${freq}MHz)
 ${color grey}Battery $color ${format_time $battery_time "\hh \mm"} ${battery_bar 4}
 ${color grey}RAM$color $mem/$memmax - ${membar 4}
 ${color grey}Swap$color $swap/$swapmax - ${swapbar 4}
+${color grey}Frequency $color ${freq_g}GHz ${color grey}(${freq}MHz)
 ${color grey}CPU: ${goto 60} ${cpubar cpu0 4}
 ${color grey}${goto 60} ${cpubar cpu1 4}
 ${color grey}${goto 60} ${cpubar cpu2 4}
