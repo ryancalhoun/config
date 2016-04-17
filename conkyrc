@@ -55,31 +55,32 @@ use_spacer none
 show_graph_scale no
 show_graph_range no
 double_buffer yes
+times_in_seconds yes
 
 TEXT
 $nodename - $sysname $kernel
 $hr
-${color grey}Uptime:$color $uptime
-${color grey}Frequency (in MHz):$color $freq
-${color grey}Frequency (in GHz):$color $freq_g
-${color grey}RAM$color $mem/$memmax - $memperc% ${membar 4}
-${color grey}Swap$color $swap/$swapmax - $swapperc% ${swapbar 4}
-${color grey}CPU0 $color ${cpu cpu0}% ${cpubar cpu0 4}
-${color grey}CPU1 $color ${cpu cpu1}% ${cpubar cpu1 4}
-${color grey}CPU2 $color ${cpu cpu2}% ${cpubar cpu2 4}
-${color grey}CPU3 $color ${cpu cpu3}% ${cpubar cpu3 4}
-${color grey}CPU4 $color ${cpu cpu4}% ${cpubar cpu4 4}
-${color grey}CPU5 $color ${cpu cpu5}% ${cpubar cpu5 4}
-${color grey}CPU6 $color ${cpu cpu6}% ${cpubar cpu6 4}
-${color grey}CPU7 $color ${cpu cpu7}% ${cpubar cpu7 4}
-${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+${color grey}Uptime:$color ${format_time $uptime "\dd \hh \mm"}
+${color grey}Frequency $color ${freq_g}GHz ${color grey}(${freq}MHz)
+${color grey}Battery $color ${format_time $battery_time "\hh \mm"} ${battery_bar 4}
+${color grey}RAM$color $mem/$memmax - ${membar 4}
+${color grey}Swap$color $swap/$swapmax - ${swapbar 4}
+${color grey}CPU: ${goto 60} ${cpubar cpu0 4}
+${color grey}${goto 60} ${cpubar cpu1 4}
+${color grey}${goto 60} ${cpubar cpu2 4}
+${color grey}${goto 60} ${cpubar cpu3 4}
+${color grey}${goto 60} ${cpubar cpu4 4}
+${color grey}${goto 60} ${cpubar cpu5 4}
+${color grey}${goto 60} ${cpubar cpu6 4}
+${color grey}${goto 60} ${cpubar cpu7 4}
 $hr
 ${color grey}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
 ${color grey}Networking:
 Up:$color ${upspeed wlan0} ${color grey} - Down:$color ${downspeed wlan0}
 $hr
-${color grey}Name              PID   CPU%   MEM%
+${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
+${color grey}Name                PID   CPU%   MEM%
 ${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
 ${color lightgrey} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
 ${color lightgrey} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
