@@ -34,14 +34,16 @@ function gitinfo
 		local st=$(git status -sb)
 		if grep -q ahead <<< "$st"; then
 			if grep -q behind <<< "$st"; then
-				local sym="\xe2\x80\xa6"
+				local sym="\xe2\x9c\x97" # ✗
 			else
-				local sym="\xe2\x86\x91"
+				local sym="\xe2\x86\x91" # ↑
 			fi
 		elif grep -q behind <<< "$st"; then
-			local sym="\xe2\x86\x93"
+			local sym="\xe2\x86\x93" # ↓
+		elif grep -q -v '##' <<< "$st"; then
+			local sym="\xe2\x80\xa6" # …
 		else
-			local sym="\xe2\x9c\x93"
+			local sym="\xe2\x9c\x93" # ✓
 		fi
 		echo " $(__magenta "($branch$sym)")"
 	elif local tag=$(git describe --tags --exact-match 2>/dev/null); then
