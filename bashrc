@@ -30,7 +30,8 @@ function systeminfo
 
 function gitinfo
 {
-	if local branch=$(git symbolic-ref -q --short HEAD 2>/dev/null); then
+	local branch
+	if branch=$(git symbolic-ref -q --short HEAD 2>/dev/null); then
 		local st=$(git status -sb)
 		if grep -q ahead <<< "$st"; then
 			if grep -q behind <<< "$st"; then
@@ -46,10 +47,10 @@ function gitinfo
 			local sym="\xe2\x9c\x93" # ✓
 		fi
 		echo " $(__magenta "($branch$sym)")"
-	elif local tag=$(git describe --tags --exact-match 2>/dev/null); then
-		echo " $(__yellow "($tag)")"
-	elif local sha=$(git describe --always 2>/dev/null); then
-		echo " $(__cyan "($sha)")"
+	elif branch=$(git describe --tags --exact-match 2>/dev/null); then
+		echo " $(__yellow "($branch)")"
+	elif branch=$(git describe --always 2>/dev/null); then
+		echo " $(__cyan "($branch)")"
 	fi
 }
 
