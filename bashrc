@@ -25,7 +25,7 @@ function statusprompt
 
 function systeminfo
 {
-	echo -e "$(__green $1)$(__blue $2)"
+	echo "$(__green $1)$(__blue $2)"
 }
 
 function gitinfo
@@ -34,14 +34,14 @@ function gitinfo
 		local st=$(git status -sb)
 		if grep -q ahead <<< "$st"; then
 			if grep -q behind <<< "$st"; then
-				local sym="\u2026"
+				local sym="\xe2\x80\xa6"
 			else
-				local sym="\u2191"
+				local sym="\xe2\x86\x91"
 			fi
 		elif grep -q behind <<< "$st"; then
-			local sym="\u2193"
+			local sym="\xe2\x86\x93"
 		else
-			local sym="\u2174"
+			local sym="\xe2\x9c\x93"
 		fi
 		echo " $(__magenta "($branch$sym)")"
 	elif local tag=$(git describe --tags --exact-match 2>/dev/null); then
@@ -58,5 +58,5 @@ function __blue { __color '34;1m' "$@"; }
 function __magenta { __color '35;1m' "$@"; }
 function __cyan { __color '36;1m' "$@"; }
 
-function __color { echo -e "\001\033[$1\002${@:2}\001\033[0m\002"; }
+function __color { echo "\001\033[$1\002${@:2}\001\033[0m\002"; }
 
