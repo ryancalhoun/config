@@ -15,6 +15,7 @@ endfun
 
 au BufReadPost * call RecallFilePos()
 au BufReadPost,BufNewFile * call SetTabBehavior()
+au BufRead,BufNewFile *.tf set syntax=terraform
 
 map q <Nop>
 map Q <Nop>
