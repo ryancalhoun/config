@@ -59,6 +59,9 @@ times_in_seconds yes
 
 TEXT
 $nodename - $sysname $kernel
+${font Sans Mono:size=60}${alignr}${time %I:%M%P}${font}
+
+${font Sans Mono:size=24}${alignr}${color gold}${time %Y %B %d}${color}${font}
 $hr
 ${color grey}Uptime:$color ${format_time $uptime "\dd \hh \mm"}
 ${color grey}Battery $color ${format_time $battery_time "\hh \mm"} ${battery_bar 4}
@@ -76,8 +79,9 @@ ${color grey}${goto 60} ${cpubar cpu7 4}
 $hr
 ${color grey}File systems:
  / $color${fs_used /}/${fs_size /} ${fs_bar 6 /}
-${color grey}Networking:
-Up:$color ${upspeed wlan0} ${color grey} - Down:$color ${downspeed wlan0}
+${color grey}Wifi Network:${color}   ${wireless_essid wlp2s0}
+${color grey}Signal Strength:${color} ${wireless_link_qual_perc wlp2s0}%
+Up:$color ${upspeed wlp2s0} ${color grey} - Down:$color ${downspeed wlp2s0}
 $hr
 ${color grey}Processes:$color $processes  ${color grey}Running:$color $running_processes
 ${color grey}Name                PID   CPU%   MEM%
