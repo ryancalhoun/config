@@ -2,6 +2,9 @@ if [[ -z $_PATH ]]; then
 	export _PATH=$PATH
 fi
 
+PATH=~/.rbenv/bin:$_PATH
+eval "$(rbenv init -)"
+
 export EDITOR=vim
 
 alias rm="rm -i"
