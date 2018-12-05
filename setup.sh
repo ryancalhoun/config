@@ -3,12 +3,12 @@
 sudo apt-get update
 
 sudo apt-get install -y build-essential autoconf bison libyaml-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libssl-dev libreadline-dev zlib1g-dev
-sudo apt-get install -y git jq python-pip
+sudo apt-get install -y git jq python-pip ack-grep
 
 sudo apt-get install -y mysql-server mysql-client libmariadbclient-dev
 sudo apt-get install -y redis-server
 
-curl -sL https://deb.nodesource.com.setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 if [[ ! -d ~/.rbenv ]]; then
