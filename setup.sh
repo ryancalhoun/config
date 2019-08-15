@@ -8,7 +8,7 @@ sudo apt-get install -y git jq python-pip ack-grep
 sudo apt-get install -y mysql-server mysql-client libmariadbclient-dev
 sudo apt-get install -y redis-server
 
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 if [[ ! -d ~/.rbenv ]]; then
@@ -22,3 +22,4 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 sudo apt-get install -y kubectl
 
+git clone https://github.com/posva/vim-vue.git ~/.vim/pack/plugins/start/vim-vue
