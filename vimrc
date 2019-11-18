@@ -1,6 +1,6 @@
 fun! SetTabBehavior()
 	filetype detect
-	if &ft =~ 'ruby\|perl\|python\|sh\|javascript\|html\|haml\|css\|sass\|yaml\|json\|tf\|vue'
+	if &ft =~ 'ruby\|perl\|python\|sh\|javascript\|html\|haml\|css\|sass\|yaml\|json\|tf\|vue\|markdown'
 		set ts=2 sw=2 et
 	else
 		set ts=4 sw=4
@@ -13,9 +13,10 @@ fun! RecallFilePos()
 	endif
 endfun
 
+au BufRead,BufNewFile *.tf set syntax=tf
+au BufRead,BufNewFile *.tfvars set filetype=tf syntax=tf
 au BufReadPost * call RecallFilePos()
 au BufReadPost,BufNewFile * call SetTabBehavior()
-au BufRead,BufNewFile *.tf set syntax=terraform
 
 map q <Nop>
 map Q <Nop>
