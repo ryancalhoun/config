@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=cmdstart
+Comment=Run cmd /c start on windows
+Terminal=false
+Exec=/mnt/c/Windows/System32/cmd.exe /c start
+Categories=
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;x-scheme-handler/https;x-scheme-handler/http;text/html;

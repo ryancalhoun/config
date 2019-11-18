@@ -1,0 +1,7 @@
+
+[Default Applications]
+text/html=cmdstart.desktop
+x-scheme-handler/http=cmdstart.desktop
+x-scheme-handler/https=cmdstart.desktop
+x-scheme-handler/about=cmdstart.desktop
+x-scheme-handler/unknown=cmdstart.desktop

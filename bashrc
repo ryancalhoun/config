@@ -5,12 +5,16 @@ fi
 PATH=~/.rbenv/bin:$_PATH
 eval "$(rbenv init -)"
 
+PATH=$(tr : '\n' <<< "$PATH" | grep -v /mnt/c | paste -sd :)
+
 export EDITOR=vim
+export DOCKER_HOST=tcp://127.0.0.1:2375
 
 alias rm="rm -i"
 alias cp="cp -i"
 alias mv="mv -i"
 alias ls="ls --color=auto"
+alias grep="grep --color"
 
 PS1="\$(statusprompt '\u@\h' '\w')"
 
