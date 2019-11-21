@@ -16,6 +16,8 @@ alias mv="mv -i"
 alias ls="ls --color=auto"
 alias grep="grep --color"
 
+umask 022
+
 PS1="\$(statusprompt '\u@\h' '\w')"
 
 function statusprompt
