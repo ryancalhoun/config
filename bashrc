@@ -75,7 +75,7 @@ function kube_info
 {
   ctx=$(kubectl config current-context 2>/dev/null)
   if [[ ! -z $ctx ]]; then
-    echo "$(__blue "[$ctx]")"
+    echo "$(__light_cyan "[$ctx]")"
   fi
 }
 
