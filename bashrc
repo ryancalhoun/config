@@ -2,7 +2,7 @@ if [[ -z $_PATH ]]; then
   export _PATH=$PATH
 fi
 
-PATH=~/.rbenv/bin:$_PATH
+PATH=~/bin:~/.rbenv/bin:$_PATH
 eval "$(rbenv init -)"
 
 PATH=$(tr : '\n' <<< "$PATH" | grep -v /mnt/c | paste -sd :)
