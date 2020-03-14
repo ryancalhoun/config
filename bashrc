@@ -87,6 +87,25 @@ function tf_info
   fi
 }
 
+function use
+{
+  if [[ -z $1 ]]; then
+    for d in /opt/*; do
+      if ls $d/[v0-9]* > /dev/null 2>&1; then
+        echo "   $(basename $d)"
+      fi
+    done
+  elif [[ -z $2 ]]; then
+    for d in /opt/$1/*/$1; do
+      echo "   $(basename $(dirname $d))"
+    done
+  else
+    ln -sf /opt/$1/$2/$1 ~/bin/$1
+  fi
+}
+
+
+
 function __red { __color '31m' "$@"; }
 function __green { __color '32m' "$@"; }
 function __yellow { __color '33m' "$@"; }

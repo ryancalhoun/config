@@ -29,11 +29,29 @@ if [[ ! -d ~/.vim/pack/plugins/start/vim-vue ]]; then
   git clone https://github.com/posva/vim-vue.git ~/.vim/pack/plugins/start/vim-vue
 fi
 
+sudo mkdir -p /opt/helm/v2.11.0
+if [[ ! -f /opt/helm/v2.11.0/helm ]]; then
+  curl https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz -o - | sudo tar -C /opt/helm/v2.11.0 -zx linux-amd64/helm --strip-components 1
+fi
+
+sudo mkdir -p /opt/helm/v3.0.2
+if [[ ! -f /opt/helm/v3.0.2/helm ]]; then
+  curl https://get.helm.sh/helm-v3.0.2-linux-amd64.tar.gz -o - | sudo tar -C /opt/helm/v3.0.2 -zx linux-amd64/helm --strip-components 1
+fi
+
+sudo mkdir -p /opt/terraform/0.11.13
+if [[ ! -f /opt/terraform/0.11.13/terraform ]]; then
+  curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_amd64.zip \
+   && sudo unzip -d /opt/terraform/0.11.13 /tmp/terraform.zip \
+   && sudo chmod 0755 /opt/terraform/0.11.13/terraform
+fi
+
+sudo mkdir -p /opt/terraform/0.12.18
+if [[ ! -f /opt/terraform/0.12.18/terraform ]]; then
+  curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip \
+   && sudo unzip -d /opt/terraform/0.12.18 /tmp/terraform.zip \
+   && sudo chmod 0755 /opt/terraform/0.12.18/terraform
+fi
+
 mkdir -p ~/bin
-
-curl https://get.helm.sh/helm-v3.0.2-linux-amd64.tar.gz -o - | tar -C ~/bin -zx linux-amd64/helm --strip-components 1
-curl -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip \
- && unzip -d ~/bin /tmp/terraform.zip \
- && chmod 0755 ~/bin/terraform
-
 
