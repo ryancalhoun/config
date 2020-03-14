@@ -16,9 +16,12 @@ if [[ ! -d ~/.rbenv ]]; then
   git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 fi
 
+
 export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s | sed 's/tara/bionic/')"
-echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+if ! grep -q $CLOUD_SDK_REPO /etc/apt/sources.list.d/google-cloud-sdk.list; then
+  echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+  curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+fi
 sudo apt-get update && sudo apt-get install -y google-cloud-sdk
 sudo apt-get install -y kubectl
 
