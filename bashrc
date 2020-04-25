@@ -8,9 +8,6 @@ eval "$(rbenv init -)"
 PATH=$(tr : '\n' <<< "$PATH" | grep -v /mnt/c | paste -sd :)
 
 export EDITOR=vim
-if cat /proc/version  | grep -q Microsoft; then
-  export DOCKER_HOST=tcp://127.0.0.1:2375
-fi
 
 alias rm="rm -i"
 alias cp="cp -i"

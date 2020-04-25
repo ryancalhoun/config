@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-sudo apt-get install -y build-essential autoconf bison libyaml-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libssl-dev libreadline-dev zlib1g-dev
+sudo apt-get install -y build-essential autoconf bison libyaml-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev libssl-dev libreadline-dev zlib1g-dev zip unzip
 sudo apt-get install -y git jq python-pip ack-grep
 
 sudo apt-get install -y mysql-server mysql-client libmariadbclient-dev
