@@ -8,6 +8,11 @@ eval "$(rbenv init -)"
 PATH=$(tr : '\n' <<< "$PATH" | grep -v /mnt/c | paste -sd :)
 
 export EDITOR=vim
+if cat /proc/version  | grep -q Microsoft; then
+  if ! sudo service cron status | grep -q running; then
+    sudo service cron start
+  fi
+fi
 
 alias rm="rm -i"
 alias cp="cp -i"
@@ -60,7 +65,7 @@ function gitinfo
     else
       local sym="\xe2\x9c\x93" # ✓
     fi
-    echo "$(__magenta "($branch$sym)")"
+    echo "$(__light_magenta "($branch$sym)")"
   elif branch=$(git describe --tags --exact-match 2>/dev/null); then
     echo "$(__yellow "($branch)")"
   elif branch=$(git describe --always 2>/dev/null); then
