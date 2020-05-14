@@ -8,8 +8,8 @@ eval "$(rbenv init -)"
 PATH=$(tr : '\n' <<< "$PATH" | grep -v /mnt/c | paste -sd :)
 
 export EDITOR=vim
-if cat /proc/version  | grep -q Microsoft; then
-  if ! sudo service cron status | grep -q running; then
+if cat /proc/version  | grep -qi Microsoft; then
+  if sudo service cron status | grep -q "not running"; then
     sudo service cron start
   fi
 fi

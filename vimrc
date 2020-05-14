@@ -1,6 +1,6 @@
 fun! SetTabBehavior()
 	filetype detect
-	if &ft =~ 'ruby\|perl\|python\|groovy\|sh\|javascript\|html\|haml\|css\|sass\|yaml\|json\|tf\|vue\|markdown'
+	if &ft =~ 'ruby\|perl\|python\|groovy\|sh\|javascript\|text\|html\|haml\|css\|sass\|yaml\|json\|tf\|vue\|markdown'
 		set ts=2 sw=2 et
 	else
 		set ts=4 sw=4
@@ -25,3 +25,4 @@ set hls
 set bs=2
 
 syntax on
+hi shCommandSub ctermfg=white

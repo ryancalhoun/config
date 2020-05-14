@@ -5,15 +5,16 @@
 
     "copyOnSelect": false,
     "copyFormatting": false,
-    "wordDelimiters": "/\\()\"':,;<>~!@#$%^&*|+=[]{}~?│",
+    "wordDelimiters": "\"',;!&|│",
 
     "profiles":
     {
         "defaults":
         {
             "useAcrylic": true,
-            "acrylicOpacity": 0.7,
-            "cursorShape": "vintage"    
+            "acrylicOpacity": 0.8,
+            "cursorShape": "vintage",
+            "fontFace": "Roboto Mono for Powerline"
         },
         "list":
         [
