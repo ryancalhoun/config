@@ -5,7 +5,8 @@ fi
 PATH=~/bin:~/.rbenv/bin:$_PATH
 eval "$(rbenv init -)"
 
-PATH=$(tr : '\n' <<< "$PATH" | grep -v /mnt/c | paste -sd :)
+DOCKER=$(tr : '\n' <<< "$PATH" | grep Docker/resources | head -n1)
+PATH=$(tr : '\n' <<< "$PATH" | grep -v /mnt/c | paste -sd :):$DOCKER
 
 export EDITOR=vim
 if cat /proc/version  | grep -qi Microsoft; then
