@@ -8,7 +8,7 @@ sudo apt-get install -y git jq python-pip ack-grep
 sudo apt-get install -y mysql-server mysql-client libmariadbclient-dev
 sudo apt-get install -y redis-server
 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 if [[ ! -d ~/.rbenv ]]; then
